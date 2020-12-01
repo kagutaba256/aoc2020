@@ -5,6 +5,7 @@ with open('big-input.txt', 'r') as f:
     data = f.read()
 
 data = (data.split('\n'))
+data.pop()
 data = [int(x) for x in data]
 data.sort()
 
