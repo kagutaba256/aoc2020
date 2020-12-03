@@ -1,15 +1,13 @@
 # sam little
-# aoc day 2
-
-import numpy as np
-
+# aoc day 3
 
 def count_trees(slope):
     count = 0
     trees_hit = 0
-    idx = np.array([0, 0])
+    idx = [0, 0]
     while count < len(data) - 1:
-        idx += slope
+        idx[0] += slope[0]
+        idx[1] += slope[1]
         if idx[1] > len(data):
             return trees_hit
         if data[idx[1]][idx[0] % len(data[0])] == '#':
@@ -24,18 +22,12 @@ with open('day3-input.txt', 'r') as f:
 
 data = (data.split('\n'))
 
-slope1 = np.array([1, 1])
-slope2 = np.array([3, 1])
-slope3 = np.array([5, 1])
-slope4 = np.array([7, 1])
-slope5 = np.array([1, 2])
-
 slopes = []
-slopes.append(slope1)
-slopes.append(slope2)
-slopes.append(slope3)
-slopes.append(slope4)
-slopes.append(slope5)
+slopes.append([1, 1])
+slopes.append([3, 1])
+slopes.append([5, 1])
+slopes.append([7, 1])
+slopes.append([1, 2])
 
 total = 1
 for slope in slopes:
