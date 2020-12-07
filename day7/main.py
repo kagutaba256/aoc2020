@@ -33,8 +33,13 @@ def open_bag_count_kind(bag_name, kind):
     return 0
 
 
-count = 0
-for entry in b:
-    count += open_bag_count_kind(entry, 'shinygoldbag')
+def count_bags_in_bag(bag_name):
+    count = 1
+    for bag in b[bag_name]:
+        count += bag['count'] * count_bags_in_bag(bag['name'])
+    return count
+
+
+count = count_bags_in_bag('shinygoldbag') - 1
 
 print(count)
